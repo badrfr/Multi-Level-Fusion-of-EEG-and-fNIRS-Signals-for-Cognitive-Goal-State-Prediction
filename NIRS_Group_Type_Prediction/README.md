@@ -51,6 +51,8 @@ Detector 32: RED1, IR1, RED2, IR2, ..., RED16, IR16
 | KNN | 51.4% ± 9.9% | 54.7% ± 10.5% | 56.0% ± 22.4% | 52.8% ± 8.8% | 53.5% ± 17.5% | 0.012s |
 | XGBoost | 48.6% ± 9.9% | 51.3% ± 8.6% | 50.0% ± 6.3% | 50.1% ± 5.2% | 46.7% ± 8.9% | 1.2s |
 
+
+![Comparison of model performance on NIRS Data](figures/model_performance.png)
 ### 🏆 Winner: Random Forest
 - **Best overall performance** with balanced accuracy and recall
 - **Robust handling** of high-dimensional NIRS data
