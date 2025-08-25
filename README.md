@@ -1,9 +1,4 @@
-# EEG-NIRS Adaptive Fusion for Cognitive Flexibility
-
-[![DOI](https://img.shields.io/badge/DOI-10.xxxx%2Fjournal.xxxx-blue)](https://doi.org/10.xxxx/journal.xxxx)
-[![Python](https://img.shields.io/badge/Python-3.8%2B-brightgreen)](https://python.org)
-[![License](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Under%20Review-orange)](https://github.com/your-username/eeg-nirs-cognitive-flexibility)
+# Adaptive Fusion of EEG and NIRS with Explainable AI Reveals Neurophysiological Markers of Cognitive Flexibility
 
 ## 🧠 Overview
 
