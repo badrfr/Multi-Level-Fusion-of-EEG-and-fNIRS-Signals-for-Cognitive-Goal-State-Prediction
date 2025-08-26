@@ -1,6 +1,6 @@
 # EEG-NIRS Multimodal Fusion for Cognitive Load Classification
 
-A comprehensive machine learning framework for classifying cognitive states using multimodal EEG-NIRS data fusion. This project implements and compares three fusion strategies to distinguish between goal-directed (AO) and non-goal-directed (SO) cognitive states.
+A comprehensive machine learning framework for classifying cognitive states using multimodal EEG-NIRS data fusion. This project implements and compares three fusion strategies to distinguish between with objective (AO) and without objective (SO) cognitive states.
 
 ## 🧠 Overview
 
