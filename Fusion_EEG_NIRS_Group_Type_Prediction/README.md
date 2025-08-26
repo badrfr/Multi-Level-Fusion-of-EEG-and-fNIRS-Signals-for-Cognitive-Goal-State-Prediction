@@ -29,7 +29,7 @@ This repository contains the implementation of a multimodal neurophysiological s
 ## 📁 Project Structure
 
 ```
-Fusion_EEG&NIRS_Group_Type_Prediction/
+Fusion_EEG_NIRS_Group_Type_Prediction/
   ├── Early_Fusion/
   │     ├── Fused_Dataset/
   │     │    ├── Dataset_overview.png
