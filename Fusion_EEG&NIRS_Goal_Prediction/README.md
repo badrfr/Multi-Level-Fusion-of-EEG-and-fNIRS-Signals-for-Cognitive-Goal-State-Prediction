@@ -31,12 +31,12 @@ This repository contains the implementation of a multimodal neurophysiological s
 ```
 Fusion_EEG&NIRS_Group_Type_Prediction/
   ├── Early_Fusion/
-  │     ├── notebooks/
-  │     │    ├── Early_fusion.ipynb
-  │     │    └── EEG_NIRS_Construct.ipynb
-  │     └── Fusion_Data
-  │          ├── Dataset_overview
-  │          └── extrait.csv       
+  │     ├── Fused_Dataset/
+  │     │    ├── Dataset_overview.png
+  │     │    └── extrait.csv
+  │     └── notebooks/
+  │          ├── Early_fusion.ipynb
+  │          └── EEG_NIRS_Construct.ipynb      
   ├── Features_Fusion/
   │     └── Features_fusion.ipynb     
   ├── Late_Fusion/
