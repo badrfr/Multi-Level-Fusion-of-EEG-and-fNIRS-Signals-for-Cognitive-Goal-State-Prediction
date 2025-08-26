@@ -67,13 +67,13 @@ We aimed to develop and validate multimodal EEG-NIRS biomarkers of cognitive fle
 │   ├── notebook/
 │   │   └── Prediction_of_Group_NIRS.ipynb
 │   └── README.md
-├── Fusion_EEG&NIRS_Group_Type_Prediction/
+├── Fusion_EEG_NIRS_Group_Type_Prediction/
 │   ├── Early_Fusion/
 │   │   ├── notebooks/
 │   │   │    ├── Early_fusion.ipynb
 │   │   │    └── EEG_NIRS_Construct.ipynb
-│   │   └── Fusion_Data
-│   │         ├── Dataset_overview
+│   │   └── Fused_Dataset
+│   │         ├── Dataset_overview.png
 │   │         └── extrait.csv       
 │   ├── Features_Fusion/
 │   │   └── Features_fusion.ipynb     
