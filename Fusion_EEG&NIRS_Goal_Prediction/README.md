@@ -113,4 +113,3 @@ The dynamic gating model uses 11 meta-features:
 
 
 
-**Note**: This is a research project. Results may vary depending on your specific dataset and experimental setup. Please refer to the paper for detailed methodology and validation procedures.
