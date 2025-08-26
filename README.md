@@ -164,4 +164,3 @@ Our novel **dynamic gating** approach learns instance-specific fusion weights us
 ---
 
 
-*Last updated: January 2025*
