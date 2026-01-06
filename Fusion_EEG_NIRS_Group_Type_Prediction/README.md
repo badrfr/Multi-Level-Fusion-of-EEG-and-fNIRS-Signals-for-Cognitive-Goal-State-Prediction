@@ -299,4 +299,67 @@ flowchart TD
 
     N --> O["Accuracy 87.78% ± 7.9%<br/>+10% vs Phase 2<br/>Variance -55.4%"]
 ```
+## Hyperparameter Selection Strategy
+
+All models across early fusion, feature-level fusion, and late fusion were trained using fixed, literature-recommended hyperparameters rather than dataset-specific optimization. This conservative strategy was deliberately adopted to reduce overfitting risks given the limited sample size (n ≈ 44) and to ensure reproducibility and fair comparison across fusion strategies. A fixed random seed (random_state = 42) was used whenever applicable.
+
+---
+
+### Early Fusion Models
+
+**Traditional Machine Learning**
+- **KNN**: `n_neighbors = 5`, distance-weighted voting  
+  A standard configuration balancing local sensitivity and robustness to noise.
+- **SVM (RBF)**: default kernel with probabilistic output  
+  The RBF kernel is widely used for nonlinear EEG-based classification.
+- **Random Forest**: `n_estimators = 100`, `max_depth = 5`, `min_samples_split = 5`  
+  Depth limitation constrains model complexity for small datasets.
+- **Logistic Regression**: `max_iter = 1000`  
+  Ensures numerical convergence without aggressive regularization tuning.
+- **XGBoost**: `n_estimators = 100`, `max_depth = 3`, `learning_rate = 0.1`  
+  Shallow trees and moderate learning rate are recommended for limited-sample regimes.
+- **MLP**: single hidden layer (`50 units`), `alpha = 0.01`, early stopping enabled  
+  Compact architecture selected to prevent overfitting.
+- **LightGBM**: default boosting parameters with forced row-wise execution and single-threading  
+  (`force_row_wise = True`, `num_threads = 1`) to guarantee deterministic behavior.
+
+**Deep Learning**
+- **GRU / BiLSTM**: two-layer architectures (64–32 units) with dropout (0.3, 0.2)  
+  Adam optimizer (`learning_rate = 0.001`) and early stopping were used following standard practice for small datasets.
+
+---
+
+### Feature-Level Fusion Models
+
+Feature-level fusion employed classical pipelines with imputation and standardization to ensure numerical stability:
+- **Random Forest**: `n_estimators = 300`  
+  Larger ensemble size stabilizes variance in high-dimensional fused feature spaces.
+- **Logistic Regression**: standardized inputs, `max_iter = 2000`  
+  Increased iteration budget ensures convergence after feature concatenation.
+- **MLP**: `(256, 128)` hidden layers with early stopping  
+  Slightly larger architecture compensates for increased input dimensionality.
+- **KNN**: `n_neighbors = 5` with standardized features  
+- **SVM (RBF)**: default kernel with probabilistic outputs  
+- **LightGBM**: default parameters for robustness and computational efficiency.
+
+GRU and BiLSTM models at this level used single-layer recurrent architectures (64 units) followed by dense projection layers, with dropout-based regularization and Adam optimization (`learning_rate = 0.001`).
+
+---
+
+### Late Fusion Models
+
+Late fusion combined probabilistic outputs from unimodal classifiers:
+- **Random Forest**: `n_estimators = 300`  
+- **SVM (RBF)**: `C = 1.0`, `gamma = 'scale'`, `class_weight = 'balanced'`  
+- **Logistic Regression**: `max_iter = 1000`, `class_weight = 'balanced'`  
+- **KNN**: `n_neighbors = 5`  
+- **MLP**: `(128, 64)` hidden layers  
+- **XGBoost**: `n_estimators = 400`, `learning_rate = 0.05`, `max_depth = 5`, subsampling enabled  
+  Conservative learning rate and regularized tree depth follow best practices for small datasets.
+
+---
+
+### General Remarks
+
+No hyperparameter grid search or Bayesian optimization was conducted. Instead, robustness was assessed through cross-validation stability, with consistently low variance across folds. This approach prioritizes methodological transparency and generalizability over maximizing performance on a single dataset.
 
